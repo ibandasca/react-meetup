@@ -24,7 +24,9 @@ export default function MeetupItem({ item }) {
           <p>{item.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={() => handleAddToFavorite(item.id)}>Add to favorites</button>
+          <button onClick={() => handleAddToFavorite(item.id)} data-testid='add-to-favorites-button'>
+            Add to favorites
+          </button>
         </div>
       </Card>
     </li>

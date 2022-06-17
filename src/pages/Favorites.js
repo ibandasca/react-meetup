@@ -16,7 +16,7 @@ export default function FavoritesPage() {
 
   return (
     <Container>
-      <h1>Favorites Page</h1>
+      <h1 data-testid="favorite-title">Favorites Page</h1>
       <ul className={classes.list}>
         {favoriteMeetups.map((item) => {
           return (

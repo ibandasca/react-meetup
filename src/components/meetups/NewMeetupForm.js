@@ -60,6 +60,7 @@ export default function NewMeetupForm() {
             id="title" 
             value={meetupTitle} 
             onChange={(e) => handleChangeMeetUpTitle(e.target.value)}
+            data-testid="title"
           />
         </div>
         <div className={classes.control}>
@@ -70,6 +71,7 @@ export default function NewMeetupForm() {
             id="image"
             value={meetupImage}
             onChange={(e) => handleChangeMeetupImage(e.target.value)} 
+            data-testid="image"
           />
         </div>
         <div className={classes.control}>
@@ -79,7 +81,9 @@ export default function NewMeetupForm() {
             required 
             id="address"
             value={meetupAddress}
-            onChange={(e) => handleChangeAddress(e.target.value)} />
+            onChange={(e) => handleChangeAddress(e.target.value)} 
+            data-testid="address"
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="description">Description</label>
@@ -89,11 +93,12 @@ export default function NewMeetupForm() {
             rows="5"
             value={meetupDescription}
             onChange={(e) => handleChangeMeetupDescription(e.target.value)}
+            data-testid="description"
             >
           </textarea>
         </div>
         <div className={classes.actions}>
-          <button>Add Meetup</button>
+          <button data-testid="add-meetup-button">Add Meetup</button>
         </div>
       </form>
     </Card>
