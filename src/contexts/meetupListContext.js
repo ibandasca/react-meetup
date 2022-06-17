@@ -27,9 +27,14 @@ const MeetupsListProvider = ({ children }) => {
         }
     ])
 
+    const [favoriteMeetups, setFavoriteMeetups] = useState([])
+
     return (
        <MeetupsListContext.Provider value={{
-        mettups, setMeetups,
+        mettups, 
+        setMeetups, 
+        favoriteMeetups, 
+        setFavoriteMeetups
        }}>
         {children}
        </MeetupsListContext.Provider> 
