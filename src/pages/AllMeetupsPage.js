@@ -16,8 +16,8 @@ export default function AllMeetupsPage() {
   
   return (
     <Container>
-      <h1>All Meetups</h1>
-      <ul className={classes.list}>
+      <h1 data-testid="all-meetups-title">All Meetups</h1>
+      <ul className={classes.list} data-testid='list-of-meetups'>
         {mettups.map((item) => {
           return (
             <div key={item.id}>

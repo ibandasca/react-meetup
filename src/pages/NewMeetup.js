@@ -11,7 +11,7 @@ const Container = styled.section`
 export default function NewMeetupsPage() {
   return (
     <Container>
-      <h1>Add New Meetup</h1>
+      <h1 data-testid="add-new-meetup-title">Add New Meetup</h1>
       <NewMeetupForm />
     </Container>
   );

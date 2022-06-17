@@ -9,5 +9,5 @@ const BadgeComponent = styled.div`
 `
 
 export default function Badge({amount}) {
-    return <BadgeComponent>{amount}</BadgeComponent>;
+    return <BadgeComponent data-testid='badge-value'>{amount}</BadgeComponent>;
   }

@@ -24,7 +24,7 @@ export default function FavoriteMeetupItem({ item }) {
           <p>{item.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={() => handleRemoveFromFavorites(item.id)}>Remove from favorites</button>
+          <button onClick={() => handleRemoveFromFavorites(item.id)} data-testid='remove-from-favorite-button'>Remove from favorites</button>
         </div>
       </Card>
     </li>

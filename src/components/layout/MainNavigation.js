@@ -76,18 +76,18 @@ export default function MainNavigation() {
         <nav>
           <ItemContainer>
             <Item>
-              <StyledLink to="/">
+              <StyledLink to="/" data-testid="all-meetups-link">
               All Meetups
               </StyledLink>
             </Item>
             <Item>
-              <StyledLink to="/newmeetup">
+              <StyledLink to="/newmeetup" data-testid="add-new-meetup-link">
                 Add New Meetup
               </StyledLink>
             </Item>
             <Item>
               <FavoritesContainer>
-                <StyledLink to="/favorites">
+                <StyledLink to="/favorites" data-testid="favorites-link">
                   My Favorites            
                 </StyledLink>
                 <Badge amount={favoriteMeetups.length}/>
