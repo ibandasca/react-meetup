@@ -1,10 +1,13 @@
+import React, { useContext } from "react";
+import { MeetupsListContext } from '../../contexts/meetupListContext'; 
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Badge from '../ui/Badge'
 
 const Navbar = styled.div`
   position: fixed;
-  top: 0; /* Stay on top */
-  width: 100%; /* Full width */
+  top: 0;
+  width: 100%;
   transition: top 0.3s;
 `
 
@@ -46,7 +49,14 @@ const StyledLink = styled(Link)`
   }
 `
 
+const FavoritesContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 export default function MainNavigation() {
+
+  const { favoriteMeetups } = useContext(MeetupsListContext)
 
   let prevScrollpos = window.pageYOffset;
   window.onscroll = () => {
@@ -76,9 +86,12 @@ export default function MainNavigation() {
               </StyledLink>
             </Item>
             <Item>
-              <StyledLink to="/favorites">
-                My Favorites            
-              </StyledLink>
+              <FavoritesContainer>
+                <StyledLink to="/favorites">
+                  My Favorites            
+                </StyledLink>
+                <Badge amount={favoriteMeetups.length}/>
+              </FavoritesContainer>
             </Item>
           </ItemContainer>
         </nav>
