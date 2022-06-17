@@ -13,7 +13,7 @@ const Container = styled.section`
 export default function AllMeetupsPage() {
 
   const { mettups } = useContext(MeetupsListContext);
-
+  
   return (
     <Container>
       <h1>All Meetups</h1>
