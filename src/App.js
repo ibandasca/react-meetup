@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { MeetupsListProvider } from './contexts/meetupListContext'
 
 import AllMeetupsPage from "./pages/AllMeetupsPage";
 import FavoritesPage from "./pages/Favorites";
@@ -10,12 +11,14 @@ function App() {
   return (
     <div data-test="app">
       <BrowserRouter>
-        <MainNavigation />
-        <Routes>
-          <Route path="/" element={<AllMeetupsPage/>}/>
-          <Route path="/newmeetup" element={<NewMeetupsPage/>}/>
-          <Route path="/favorites" element={<FavoritesPage/>}/>
-        </Routes>
+        <MeetupsListProvider>
+          <MainNavigation />
+          <Routes>
+            <Route path="/" element={<AllMeetupsPage/>}/>
+            <Route path="/newmeetup" element={<NewMeetupsPage/>}/>
+            <Route path="/favorites" element={<FavoritesPage/>}/>
+          </Routes>
+        </MeetupsListProvider>
       </BrowserRouter>
     </div>
   );
