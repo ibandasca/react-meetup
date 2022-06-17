@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import { MeetupsListContext } from '../../contexts/meetupListContext';
+import { MeetupsListContext } from '../../contexts/meetupListContext'; 
 import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
 
-export default function MeetupItem({ item }) {
-  
-  const { favoriteMeetups, setFavoriteMeetups } = useContext(MeetupsListContext)
+export default function FavoriteMeetupItem({ item }) {
+    
+    const { favoriteMeetups, setFavoriteMeetups } = useContext(MeetupsListContext)
+    
+    const handleRemoveFromFavorites = (id) => {
+        const newArrayofFavoriteItems = favoriteMeetups.filter((element) => element.id !== id )
+        setFavoriteMeetups(newArrayofFavoriteItems)
+    }
 
-  const handleAddToFavorite = (id) => {
-    const isElementAFavoriteOne = favoriteMeetups.find((element) => element.id === id)
-    if(!isElementAFavoriteOne) setFavoriteMeetups([...favoriteMeetups, item])
-  }
-
-  return (
+    return (
     <li className={classes.item} data-test='meet-up-item'>
       <Card>
         <div className={classes.image}>
@@ -24,7 +24,7 @@ export default function MeetupItem({ item }) {
           <p>{item.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={() => handleAddToFavorite(item.id)}>Add to favorites</button>
+          <button onClick={() => handleRemoveFromFavorites(item.id)}>Remove from favorites</button>
         </div>
       </Card>
     </li>
