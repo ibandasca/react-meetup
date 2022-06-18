@@ -1,7 +1,53 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import { MeetupsListContext } from '../../contexts/meetupListContext'; 
-import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
+
+const Item = styled.li`
+   margin: 1rem 0;
+`
+
+const Image = styled.div`
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+
+  & > img {
+    width: 100%;
+    object-fit: cover;
+  }
+`
+
+const Content = styled.div`
+  text-align: center;
+  padding: 1rem;
+
+  & > h3 {
+    font-size: 1.25rem;
+    color: #2c292b;
+  }
+`
+
+const Actions = styled.div`
+  padding: 1.5rem;
+  text-align: center;
+`
+
+const StyledButton = styled.button`
+  font: inherit;
+  cursor: pointer;
+  color: #77002e;
+  border: 1px solid #77002e;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #ffe2ed;
+  }
+`
 
 export default function FavoriteMeetupItem({ item }) {
     
@@ -13,20 +59,20 @@ export default function FavoriteMeetupItem({ item }) {
     }
 
     return (
-    <li className={classes.item} data-test='meet-up-item'>
+    <Item data-test='meet-up-item'>
       <Card>
-        <div className={classes.image}>
+        <Image>
           <img src={item.image} alt={item.title} />
-        </div>
-        <div className={classes.content}>
+        </Image>
+        <Content>
           <h3>{item.title}</h3>
           <address>{item.address}</address>
           <p>{item.description}</p>
-        </div>
-        <div className={classes.actions}>
-          <button onClick={() => handleRemoveFromFavorites(item.id)} data-testid='remove-from-favorite-button'>Remove from favorites</button>
-        </div>
+        </Content>
+        <Actions>
+          <StyledButton onClick={() => handleRemoveFromFavorites(item.id)} data-testid='remove-from-favorite-button'>Remove from favorites</StyledButton>
+        </Actions>
       </Card>
-    </li>
+    </Item>
   );
 }
