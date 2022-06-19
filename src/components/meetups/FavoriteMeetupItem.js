@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { MeetupsListContext } from '../../contexts/meetupListContext'; 
+import { MeetupsListContext } from "../../contexts/meetupListContext";
 import Card from "../ui/Card";
 
 const Item = styled.li`
-   margin: 1rem 0;
-`
+  margin: 1rem 0;
+`;
 
 const Image = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ const Image = styled.div`
     width: 100%;
     object-fit: cover;
   }
-`
+`;
 
 const Content = styled.div`
   text-align: center;
@@ -28,12 +28,12 @@ const Content = styled.div`
     font-size: 1.25rem;
     color: #2c292b;
   }
-`
+`;
 
 const Actions = styled.div`
   padding: 1.5rem;
   text-align: center;
-`
+`;
 
 const StyledButton = styled.button`
   font: inherit;
@@ -47,19 +47,21 @@ const StyledButton = styled.button`
   &:hover {
     background-color: #ffe2ed;
   }
-`
+`;
 
 export default function FavoriteMeetupItem({ item }) {
-    
-    const { favoriteMeetups, setFavoriteMeetups } = useContext(MeetupsListContext)
-    
-    const handleRemoveFromFavorites = (id) => {
-        const newArrayofFavoriteItems = favoriteMeetups.filter((element) => element.id !== id )
-        setFavoriteMeetups(newArrayofFavoriteItems)
-    }
+  const { favoriteMeetups, setFavoriteMeetups } =
+    useContext(MeetupsListContext);
 
-    return (
-    <Item data-test='meet-up-item'>
+  const handleRemoveFromFavorites = (id) => {
+    const newArrayofFavoriteItems = favoriteMeetups.filter(
+      (element) => element.id !== id
+    );
+    setFavoriteMeetups(newArrayofFavoriteItems);
+  };
+
+  return (
+    <Item data-test="meet-up-item">
       <Card>
         <Image>
           <img src={item.image} alt={item.title} />
@@ -70,7 +72,12 @@ export default function FavoriteMeetupItem({ item }) {
           <p>{item.description}</p>
         </Content>
         <Actions>
-          <StyledButton onClick={() => handleRemoveFromFavorites(item.id)} data-testid='remove-from-favorite-button'>Remove from favorites</StyledButton>
+          <StyledButton
+            onClick={() => handleRemoveFromFavorites(item.id)}
+            data-testid="remove-from-favorite-button"
+          >
+            Remove from favorites
+          </StyledButton>
         </Actions>
       </Card>
     </Item>

@@ -3,11 +3,11 @@ import React, {
   useState,
   useCallback,
   useLayoutEffect,
-} from 'react';
-import { MeetupsListContext } from '../../contexts/meetupListContext';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Badge from '../ui/Badge';
+} from "react";
+import { MeetupsListContext } from "../../contexts/meetupListContext";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Badge from "../ui/Badge";
 
 const Navbar = styled.div`
   position: fixed;
@@ -68,19 +68,19 @@ export default function MainNavigation() {
     const currentScrollPos = window.scrollY;
 
     if (scrollPosition > currentScrollPos) {
-      document.getElementById('navbar').style.top = '0';
+      document.getElementById("navbar").style.top = "0";
     } else {
-      document.getElementById('navbar').style.top = '-100px';
+      document.getElementById("navbar").style.top = "-100px";
     }
 
     setScrollPosition(currentScrollPos);
   }, [scrollPosition]);
 
   useLayoutEffect(() => {
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, [onScroll]);
 

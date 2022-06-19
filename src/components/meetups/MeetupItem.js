@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { MeetupsListContext } from '../../contexts/meetupListContext';
+import { MeetupsListContext } from "../../contexts/meetupListContext";
 import Card from "../ui/Card";
 
 const Item = styled.li`
-   margin: 1rem 0;
-`
+  margin: 1rem 0;
+`;
 
 const Image = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ const Image = styled.div`
     width: 100%;
     object-fit: cover;
   }
-`
+`;
 
 const Content = styled.div`
   text-align: center;
@@ -28,12 +28,12 @@ const Content = styled.div`
     font-size: 1.25rem;
     color: #2c292b;
   }
-`
+`;
 
 const Actions = styled.div`
   padding: 1.5rem;
   text-align: center;
-`
+`;
 
 const StyledButton = styled.button`
   font: inherit;
@@ -47,21 +47,23 @@ const StyledButton = styled.button`
   &:hover {
     background-color: #ffe2ed;
   }
-`
+`;
 
 export default function MeetupItem({ item }) {
-  
-  const { favoriteMeetups, setFavoriteMeetups } = useContext(MeetupsListContext)
+  const { favoriteMeetups, setFavoriteMeetups } =
+    useContext(MeetupsListContext);
 
   const handleAddToFavorite = (id) => {
-    const isElementAFavoriteOne = favoriteMeetups.find((element) => element.id === id)
-    if(!isElementAFavoriteOne) setFavoriteMeetups([...favoriteMeetups, item])
-  }
+    const isElementAFavoriteOne = favoriteMeetups.find(
+      (element) => element.id === id
+    );
+    if (!isElementAFavoriteOne) setFavoriteMeetups([...favoriteMeetups, item]);
+  };
 
   return (
-    <Item data-test='meet-up-item'>
+    <Item data-test="meet-up-item">
       <Card>
-        <Image >
+        <Image>
           <img src={item.image} alt={item.title} />
         </Image>
         <Content>
@@ -70,7 +72,10 @@ export default function MeetupItem({ item }) {
           <p>{item.description}</p>
         </Content>
         <Actions>
-          <StyledButton onClick={() => handleAddToFavorite(item.id)} data-testid='add-to-favorites-button'>
+          <StyledButton
+            onClick={() => handleAddToFavorite(item.id)}
+            data-testid="add-to-favorites-button"
+          >
             Add to favorites
           </StyledButton>
         </Actions>

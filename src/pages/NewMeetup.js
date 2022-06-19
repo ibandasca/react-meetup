@@ -5,8 +5,7 @@ const Container = styled.section`
   margin: 10rem auto;
   width: 90%;
   max-width: 40rem;
-`
-
+`;
 
 export default function NewMeetupsPage() {
   return (
