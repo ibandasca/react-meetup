@@ -29,6 +29,7 @@ describe('<NewMeetup />', () => {
     //Navigate to `All Meetups` view
     cy.get('[data-testid=all-meetups-link]').click({force: true})
 
+    //Check list of meetups should be 4 instead of 3
     cy.get('[data-testid=list-of-meetups]').find('li').should('have.length', 4)
 
   })
