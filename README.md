@@ -26,4 +26,4 @@ Para lanzar los tests individualmente:
 
 # Solución empleada
 
-La solución empleada para el funcionamiento de la aplicación consiste en hacer uso de un contexto mediante context API (`meetupListContext`) para la creación de Meetups y a su vez poder añadir estos a la lista de favoritos, de modo que podamos evitar hacer 'prop drilling'. Dicho contexto nos proporciona un provider (`MeetupsListProvider`) que se encarga de wrapear la aplicación entera para que los elementos hijos puedan hacer uso de dicho contexto.
+La solución empleada para el funcionamiento de la aplicación consiste en hacer uso de un contexto mediante context API (`meetupListContext`) para la creación de Meetups y a su vez poder añadir estos a la lista de favoritos, de modo que podamos evitar hacer 'prop drilling'. Dicho contexto nos proporciona un provider (`MeetupsListProvider`) que se encarga de wrapear la aplicación entera para que los elementos hijos puedan hacer uso de dicho contexto. Por otro lado, la aplicación emplea `react-router-dom` para el manejo de rutas, así como `styled-components` para el estilado de los componentes. 
